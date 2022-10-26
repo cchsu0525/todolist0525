@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Profile</h1>
+{% if user.is_authenticated %}
+<ul>
+    {% if user.is_superuser %}
+    <li>管理員</li>
+    {% endif %}
+    <li> Email:{{user.email}}</li>
+    <li> 加入時間:{{user.date_joined}}</li>
+    <li> 最後登入:{{user.last_login}}</li>
+</ul>
+{% endif %}
+{% endblock %}
