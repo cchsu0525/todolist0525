@@ -11,6 +11,10 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
 from pathlib import Path
+import os
+# import pymysql,os
+
+# pymysql.install_as_MySQLdb()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -50,6 +54,7 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    "whitenoise.middleware.WhiteNoiseMiddleware",
 ]
 
 ROOT_URLCONF = "todolist.urls"
@@ -76,6 +81,7 @@ WSGI_APPLICATION = "todolist.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
+# sqlite3 db
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.sqlite3",
@@ -83,6 +89,29 @@ DATABASES = {
     }
 }
 
+# local mysql
+# DATABASES = {
+#     "default": {
+#         "ENGINE": "django.db.backends.mysql",
+#         "NAME": "todolist",
+#         'USER': 'root',
+#         'PASSWORD': '1234',
+#         'HOST': '127.0.0.1',
+#         'PORT': '3306'
+#     }
+# }
+
+# AWS mysql
+# DATABASES = {
+#     "default": {
+#         "ENGINE": "django.db.backends.mysql",
+#         "NAME": "todolist",
+#         'USER': 'root',
+#         'PASSWORD': '12345678',
+#         'HOST': 'database-1.cwaiyumrl1ge.us-east-1.rds.amazonaws.com',
+#         'PORT': '3306'
+#     }
+# }
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
@@ -119,6 +148,13 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
 STATIC_URL = "static/"
+
+STATICFILES_DIRS=[
+    os.path.join(BASE_DIR,'static')    
+]
+
+STATIC_ROOT = os.path.join(BASE_DIR,'staticfiles')
+# STATICFILES_STORAGE ='whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field

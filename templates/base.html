@@ -1,3 +1,5 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="zh-Hant">
 
@@ -15,7 +17,9 @@
 
 <body>
     <header>
-        <a href="{% url 'todo' %}">首頁</a>
+        <a href="{% url 'todo' %}">
+            <img src="{% static 'images/brand.png' %}" alt="" srcset="" width="30px">
+            首頁</a>
         {% if user.is_authenticated %}
         Lonig :
         <a href="{% url 'profile' %}">{{user.username}}</a>
