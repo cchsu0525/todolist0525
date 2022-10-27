@@ -11,10 +11,9 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
 from pathlib import Path
-import os
-# import pymysql,os
+import pymysql,os
 
-# pymysql.install_as_MySQLdb()
+pymysql.install_as_MySQLdb()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -82,24 +81,24 @@ WSGI_APPLICATION = "todolist.wsgi.application"
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
 # sqlite3 db
-DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
-    }
-}
-
-# local mysql
 # DATABASES = {
 #     "default": {
-#         "ENGINE": "django.db.backends.mysql",
-#         "NAME": "todolist",
-#         'USER': 'root',
-#         'PASSWORD': '1234',
-#         'HOST': '127.0.0.1',
-#         'PORT': '3306'
+#         "ENGINE": "django.db.backends.sqlite3",
+#         "NAME": BASE_DIR / "db.sqlite3",
 #     }
 # }
+
+# local mysql
+DATABASES = {
+    "default": {
+        "ENGINE": "django.db.backends.mysql",
+        "NAME": "todolist",
+        'USER': 'root',
+        'PASSWORD': '1234',
+        'HOST': '127.0.0.1',
+        'PORT': '3306'
+    }
+}
 
 # AWS mysql
 # DATABASES = {
@@ -154,7 +153,7 @@ STATICFILES_DIRS=[
 ]
 
 STATIC_ROOT = os.path.join(BASE_DIR,'staticfiles')
-# STATICFILES_STORAGE ='whitenoise.storage.CompressedManifestStaticFilesStorage'
+#STATICFILES_STORAGE ='whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
