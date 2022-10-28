@@ -1,0 +1,19 @@
+header {
+    background-color: rgb(67, 0, 148);
+    color: white;
+    padding: 12px;
+    width: 500px;
+}
+
+header>a {
+    margin-left: 6px;
+    text-decoration: none;
+}
+
+header>a:visited {
+    color: white;
+}
+
+body {
+    background-color: antiquewhite;
+}

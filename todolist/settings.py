@@ -11,7 +11,8 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
 from pathlib import Path
-import pymysql,os
+import pymysql
+import os
 
 pymysql.install_as_MySQLdb()
 
@@ -105,9 +106,9 @@ DATABASES = {
 #     "default": {
 #         "ENGINE": "django.db.backends.mysql",
 #         "NAME": "todolist",
-#         'USER': 'root',
+#         'USER': 'admin',
 #         'PASSWORD': '12345678',
-#         'HOST': 'database-1.cwaiyumrl1ge.us-east-1.rds.amazonaws.com',
+#         'HOST': 'database-2.cwaiyumrl1ge.us-east-1.rds.amazonaws.com',
 #         'PORT': '3306'
 #     }
 # }
@@ -148,15 +149,15 @@ USE_TZ = True
 
 STATIC_URL = "static/"
 
-STATICFILES_DIRS=[
-    os.path.join(BASE_DIR,'static')    
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static')
 ]
 
-STATIC_ROOT = os.path.join(BASE_DIR,'staticfiles')
-#STATICFILES_STORAGE ='whitenoise.storage.CompressedManifestStaticFilesStorage'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
-LOGIN_URL='/user/login/'
+LOGIN_URL = '/user/login/'

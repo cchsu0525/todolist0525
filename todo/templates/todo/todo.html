@@ -37,6 +37,18 @@
 {% if not request.user.is_authenticated %}
 <h3>請先註冊或登入</h3>
 {% else %}
+<div class="columns">
+    <div class="column is-2 has-text-centered">
+        <a href="" class="nav-item">健身網站</a>
+    </div>
+    <div class="column is-2 has-text-centered">
+        <a href="" class="nav-item">B</a>
+    </div>
+    <div class="column is-2 has-text-centered">
+        <a href="" class="nav-item">C</a>
+    </div>
+</div>
+
 <ul>
     <!-- todo=>None -->
     {% if not todos %}
@@ -47,7 +59,7 @@
         {% if todo.important %}
         <span style="color:red">(重要)</span>
         {% endif %}
-        <small>{{todo.created}}</small><br>
+        <small>{{todo.created}}</small>
         ---><a href="{% url 'viewtodo' todo.id %}">
             {% if todo.completed %}
             <s>{{todo.title}}</s>
@@ -61,7 +73,7 @@
         <form action="{% url 'completed_by_id' todo.id %}">
             <button type="submit">完成</button>
         </form>
-    </li>
+    </li><br>
     {% endfor %}
     {% endif %}
 </ul>
