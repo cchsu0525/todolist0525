@@ -1,9 +1,150 @@
 {% extends 'base.html' %}
-
+{% load static %}
 {% block title %}
-<title>健身網站</title>
+<title>健身網站資訊</title>
+{% endblock %}
+
+{% block style %}
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
 {% endblock %}
 
 {% block content %}
-<h1>健身頁面</h1>
+<div id="container">
+    <div class="title">健身的好處！</div>
+    <div class="text-1">
+        <h3>何謂健身?</h3>
+        <p> 健身，英文稱為workout，健身這兩個字拆開來的意思就是健康身體，通過各種運動方式或方法來增強力量、
+            增加肌肉量、柔韌性、耐力，<br>以及提高協調和控制身體各部分的能力來使我們的身體更強健。
+        </p>
+        <p>
+            <em><b>除了塑造好身材，透過健身可以刺激我們身體的肌肉，再搭配飲食的控制，這能大大幫助我們的肌肉量增加，
+                    以及讓我們的肌肉更加的結實。</b></em>
+        </p>
+        <p class="text-2">
+            如果你對健身仍然保持著懷疑的態度，那你大可以去看看你喜歡的健身老戲骨幹，他們是如何做到年過50/60歲，依舊在
+            舞臺上或者是電影螢幕上綻放光彩。<b><u>答案就是堅持<span
+                        style="color: red; font-size:24px;font-style:italic; ">運動健身!</span></u></b>
+        </p>
+    </div>
+    <div id="image">
+        <img src="{% static 'images/pic-1.jpg' %}" alt="1.jpg">
+        <img src="{% static 'images/pic-2.jpg' %}" alt="2.jpg">
+        <img src="{% static 'images/pic-3.jpg' %}" alt="3.jpg">
+    </div>
+    <hr>
+    <div class="sub-title">健身的10個好處</div>
+    <hr>
+    <ol type="1" class="text-3">
+        <li>增加基礎代謝率</li>
+        <li>預防疾病和提高免疫力</li>
+        <li>改善心情</li>
+        <li>改善睡眠</li>
+        <li>增加自信</li>
+        <li>增強記憶力</li>
+        <li>增強心肺能力</li>
+        <li>提升睡眠品質</li>
+        <li>釋放工作的壓力</li>
+        <li>增加肌肉助於減肥</li>
+    </ol>
+    <div class="sub-title">好文章連結</div>
+    <ul>
+        <li>
+            <a href="https://www.fe-amart.com.tw/index.php/life-style/life-info/secret-recipe/hero-6" target="_blank">
+                健身初學者必看！10個常見的健身迷思</a>
+        </li>
+        <li>
+            <a href="https://fitnesstwenty.com/benefits-of-workout/#%E5%81%A5%E8%BA%AB%E6%98%AF%E4%BB%80%E9%BA%BC%EF%BC%9F"
+                target="_blank">健身是什麼？</a>
+        </li>
+        <li>
+            <a href="https://fitnesstwenty.com/benefits-of-workout/#%E5%81%A5%E8%BA%AB%E7%9A%8410%E5%80%8B%E5%A5%BD%E8%99%95%EF%BC%81%EF%BC%88%E9%80%99%E4%BA%9B%E5%A5%BD%E8%99%95%E8%AA%AA%E6%98%8E%E4%BD%A0%E8%A9%B2%E5%81%A5%E8%BA%AB%E4%BA%86%EF%BC%81%EF%BC%89"
+                target="_blank">健身的10個好處！（這些好處說明你該健身了！）</a>
+        </li>
+        <li>
+            <a href="https://fitnesstwenty.com/benefits-of-workout/#%E5%81%A5%E8%BA%AB%E7%9A%84%E9%A1%9E%E5%9E%8B%EF%BC%88%E6%89%BE%E5%88%B0%E9%81%A9%E5%90%88%E4%BD%A0%E7%9A%84%E5%81%A5%E8%BA%AB%E6%96%B9%E5%BC%8F%EF%BC%81%EF%BC%89"
+                target="_blank">健身的類型（找到適合你的健身方式！）</a>
+        </li>
+        <li>
+            <a href="https://fitnesstwenty.com/benefits-of-workout/#%E7%B8%BD%E7%B5%90" target="_blank">
+                總結
+            </a>
+        </li>
+    </ul>
+    <br>
+    <small>參考連結
+        <a href="https://fitnesstwenty.com/benefits-of-workout/">https://fitnesstwenty.com/benefits-of-workout/</a>
+    </small>
+    <hr>
+    <div class="sub-title">一天所需卡路里</div>
+
+    <table id="main-table" border="2">
+        <thead>
+            <tr>
+                <th>每天活動量</th>
+                <th>體重過輕者所需熱量</th>
+                <th>體重正常者所需熱量</th>
+                <th>體重過重、肥胖者所需熱量</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>輕度工作</td>
+                <td>35大卡 X 目前體重（公斤）</td>
+                <td>30大卡 X 目前體重（公斤）</td>
+                <td>20~25大卡 X 目前體重（公斤）</td>
+            </tr>
+            <tr>
+                <td>中度工作</td>
+                <td>40大卡 X 目前體重（公斤）</td>
+                <td>35大卡 X 目前體重（公斤）</td>
+                <td>30大卡 X 目前體重（公斤）</td>
+            </tr>
+            <tr>
+                <td>重度工作</td>
+                <td>45大卡 X 目前體重（公斤）</td>
+                <td>40大卡 X 目前體重（公斤）</td>
+                <td>35大卡 X 目前體重（公斤）</td>
+            </tr>
+        </tbody>
+    </table>
+    <p class="text-2 text-4">
+        <a href="{% url 'bmi' %}">計算BMI:</a>&nbsp;
+        一位民眾身高160公分，體重65公斤，BMI25.4kg/m2(=65÷1.6÷1.6)，體重屬於「過重」。<br>
+        <b>計算所需熱量:</b>
+        因他的工作為坐辦公室，屬輕量工作，每天攝取熱量應在1300至1625大卡之間(=20~25大卡*65公斤)。<br>
+    </p>
+    <hr>
+    <div class="sub-title">健身影片</div><br><br>
+    <div id="video">
+        <iframe width="400" height="300" src="https://www.youtube.com/embed/20uf1EcGqjY"
+            title="30分鐘爆汗燃脂+核心訓練│無須器材、無跳躍、不傷手腕│跟著我甩掉多餘體脂肪！30 Min Athome fat burn, no equipment needed, no jumping"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen>
+        </iframe>
+        <iframe width="400" height="300" src="https://www.youtube.com/embed/GMVNUgjNdlE"
+            title="「女孩健身計畫」網路健身老實說｜看影片運動 真的有用？？？？？" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen>
+        </iframe>
+
+    </div>
+    <hr>
+
+    <div class="sub-title">填寫表單</div>
+    <div class="text-1">
+        需要更多資訊?免費索取健身資訊<br>
+        <b>前100名還贈送［我愛健身］書籍一本!</b>
+    </div>
+    <form action="" method="get">
+        <p>
+            <label for="email">EMAIL</label>
+            <input type="email" name="email" id="email" placeholder="Enter your Email">
+        </p>
+        <label for="comment">您的寶貴意見</label><br>
+        <textarea name="" id="comment" cols="30" rows="10"></textarea><br>
+        <button type="submit">確認</button>
+    </form>
+
+</div>
 {% endblock %}

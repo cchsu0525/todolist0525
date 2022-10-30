@@ -1,0 +1,93 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+<title>計算BMI</title>
+{% endblock %}
+{% block style %}
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+<style>
+    #box {
+        background-color: tomato;
+        margin-top: 12px;
+        padding: 24px 0px;
+        border-radius: 12px;
+    }
+
+    #box {
+        width: 50%;
+        margin: 24px auto;
+    }
+
+    #comment {
+        background-color: rgb(165, 211, 211);
+        width: 80%;
+        margin: 0 auto;
+        font-size: 48px;
+        height: 200px;
+        line-height: 100px;
+        border-radius: 12px;
+    }
+
+    .text {
+        font-size: 24px;
+    }
+
+    @media screen and (max-width:1024px) {
+        #box {
+            width: 70%;
+        }
+    }
+
+
+    @media screen and (max-width:768px) {
+        #box {
+            width: 100%;
+        }
+
+        input,
+        label,
+        textarea {
+            font-size: 18px;
+        }
+
+        .text {
+            font-size: 18px;
+        }
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div id="container">
+    <p class="field has-text-centered">版本:v1.0</p>
+    <div class="title has-text-centered">BMI計算機</div>
+    <!-- <form action=""> -->
+    <div id="box">
+        <p class="field has-text-centered">
+            <label for="name">姓名</label>
+            <input type="text" name="name" id="name"><br>
+        </p>
+        <p class="field has-text-centered">
+            <label for="height">身高</label>
+            <input type="number" name="height" id="height" step="0.1" required><br>
+        </p>
+        <p class="field has-text-centered">
+            <label for="weight">體重</label>
+            <input type="number" name="weight" id="weight" step="0.1" required><br>
+        </p>
+        <p class="field has-text-centered">
+            <button type="submit" id="calc">計算</button>
+        </p>
+        <p id="comment">
+            BMI<span class="bmi"></span><br>
+            <span class="text"></span>
+        </p>
+
+        <!-- </form> -->
+    </div>
+    <p class="field has-text-centered">
+        <a href="{% url 'fitness' %}">回上頁</a>
+    </p>
+</div>
+<script src="{% static 'js/bmi.js' %}"></script>
+{% endblock %}

@@ -1,0 +1,149 @@
+body {
+    background-color: azure;
+    font-family: 標楷體, 新細明體, 微軟正黑體, sans-serif;
+}
+
+#container {
+    width: 80%;
+    margin: 0px auto;
+    text-align: center;
+}
+
+.title {
+    color: #5f57cc;
+    background-color: aqua;
+    font-family: 標楷體;
+    font-size: 3rem;
+    height: 4rem;
+    border-radius: 0.8rem;
+    /*垂直置中*/
+    line-height: 64px;
+    /*水平置中*/
+    text-align: center;
+}
+
+.sub-title {
+    display: inline;
+    margin: 20px 0px;
+    background-color: rgb(38, 0, 104);
+    color: white;
+    font-size: 1.5rem;
+    border-radius: 8px;
+    padding: 6px 12px;
+    font-family: 標楷體;
+}
+
+.text-1 {
+    background-color: blanchedalmond;
+    margin-top: 6px;
+    padding: 28px;
+    border: 2px solid salmon;
+    font-size: 16px;
+    line-height: 22px;
+}
+
+.text-2 {
+    background-color: rgb(153, 211, 78);
+    border-radius: 6px;
+    padding: 6px;
+}
+
+.text-3 {
+    background-color: chartreuse;
+    color: red;
+    font-size: 20px;
+    font-style: italic;
+    padding: 10px 40px;
+}
+
+.text-4 {
+    text-align: left;
+    line-height: 24px;
+}
+
+.text-4 a {
+    background-color: crimson;
+    color: white;
+    padding: 3px;
+}
+
+#image {
+    background-color: burlywood;
+    padding: 6px;
+}
+
+#image img {
+    background-color: white;
+    padding: 5px;
+    width: 30%;
+}
+
+ol {
+    text-align: left;
+}
+
+ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+ul a {
+    text-decoration: none;
+}
+
+#main-table {
+    width: 90%;
+    margin: 0 auto;
+    text-align: center;
+    height: 300px;
+    margin-top: 10px;
+}
+
+#main-table th {
+    background-color: coral;
+    color: aliceblue;
+}
+
+#main-table td {
+    background-color: aqua;
+    font-size: 14px;
+}
+
+#main-table td:first-child {
+    background-color: rgb(49, 21, 11);
+    color: white;
+}
+
+/* #main-table td:last-child {
+    background-color: blueviolet;
+} */
+
+#main-table td:nth-child(even) {
+    background: cadetblue;
+}
+
+form {
+    background-color: darkred;
+    padding: 12px 0;
+    margin: 6px;
+    border-radius: 12px;
+    color: white;
+    text-align: center;
+}
+
+input,
+textarea,
+label {
+    font-size: 20px;
+    text-align: center;
+    margin: 6px;
+}
+
+button[type="submit"] {
+    background-color: greenyellow;
+    font-size: 20px;
+    width: 100px;
+    height: 40px;
+    border-radius: 6px;
+    border: none;
+}

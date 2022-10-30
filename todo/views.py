@@ -8,6 +8,11 @@ from django.contrib.auth.decorators import login_required
 
 
 @login_required
+def bmi(request):
+    return render(request, './todo/bmi.html')
+
+
+@login_required
 def fitness(request):
     return render(request, './todo/fitness.html')
 

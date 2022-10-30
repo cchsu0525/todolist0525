@@ -1,7 +1,11 @@
 {% extends 'base.html' %}
-
+{% load static %}
 {% block title %}
 <title>已完成事項</title>
+{% endblock %}
+
+{% block style %}
+<link rel="stylesheet" href="{% static 'css/todo.css' %}">
 {% endblock %}
 
 {% block content %}
@@ -9,11 +13,14 @@
 <ul>
     {% for todo in todos %}
     <li>
-        <small>{{todo.date_completed}}</small><br>
+        {% if todo.important %}
+        <span style="color:red">(重要)</span>
+        {% endif %}
+        <small>{{todo.date_complated}}</small>
         ---><a href="{% url 'viewtodo' todo.id %}">
             {{todo.title}}
-        </a>
-    </li>
+        </a><br>
+    </li><br>
     {% endfor %}
 </ul>
 {% endblock %}

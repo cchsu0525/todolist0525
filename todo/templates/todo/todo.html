@@ -6,30 +6,6 @@
 
 {% block style %}
 <link rel="stylesheet" href="{% static 'css/todo.css' %}">
-<!-- <style>
-    form {
-        display: inline-block;
-        margin: 6px 0px;
-    }
-
-    li {
-        display: inline-block;
-        width: 300px;
-        background-color: rgb(235, 241, 253);
-        margin: 6px 6px;
-        border: 2px solid darkblue;
-        padding: 6px;
-        border-radius: 6px;
-    }
-
-    button {
-        margin-top: 6px;
-        background-color: aqua;
-        border: none;
-        padding: 4px 8px;
-
-    }
-</style> -->
 {% endblock %}
 
 {% block content %}
@@ -38,8 +14,8 @@
 <h3>請先註冊或登入</h3>
 {% else %}
 <div class="columns">
-    <div class="column is-1 has-text-centered">
-        <a href="{% url 'fitness' %}" class="nav-item">健身網站</a>
+    <div class="column is-1 is-text-2 has-text-centered">
+        <a href="{% url 'fitness' %}" class="tag is-info is-large article-tag">健身網站</a>
     </div>
     <div class="column is-1 has-text-centered">
         <a href="" class="nav-item">B</a>
