@@ -1,14 +1,34 @@
 {% extends 'base.html' %}
 {% block content %}
-<h1>Profile</h1>
-{% if user.is_authenticated %}
-<ul>
-    {% if user.is_superuser %}
-    <li>管理員</li>
-    {% endif %}
-    <li> Email:{{user.email}}</li>
-    <li> 加入時間:{{user.date_joined}}</li>
-    <li> 最後登入:{{user.last_login}}</li>
-</ul>
-{% endif %}
+<br>
+<section class="hero is-warning is-smallheight">
+    <div class="hero-body">
+        <div class="container">
+            <div class="columns is-centered">
+                <div class="column is-6">
+                    <div class="title"> Profile...</div>
+
+                    {% if user.is_authenticated %}
+                    <form action="" class="box">
+                        <ul class="has-text-primary">
+                            {% if user.is_superuser %}
+                            <li class="has-text-danger">管理員</li>
+                            {% endif %}
+                            <li> Email : {{user.email}}</li>
+                            <li> 加入時間 : {{user.date_joined}}</li>
+                            <li> 最後登入 : {{user.last_login}}</li>
+                        </ul>
+                    </form>
+                    <!-- <hr> -->
+                    <form action="" method="POST" class="box has-text-danger">
+                        {% csrf_token %}
+                        更新Email : <input class="input" type="email" name="email" id="" value="{{user.email}}">
+                        <button type="submit" class="button has-text-danger">更新</button>
+                    </form>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 {% endblock %}

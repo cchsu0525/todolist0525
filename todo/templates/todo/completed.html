@@ -9,18 +9,28 @@
 {% endblock %}
 
 {% block content %}
-<h1>Completed</h1>
-<ul>
-    {% for todo in todos %}
-    <li>
-        {% if todo.important %}
-        <span style="color:red">(重要)</span>
-        {% endif %}
-        <small>{{todo.date_complated}}</small>
-        ---><a href="{% url 'viewtodo' todo.id %}">
-            {{todo.title}}
-        </a><br>
-    </li><br>
-    {% endfor %}
-</ul>
+<br>
+<section class="hero is-warning is-fullheight">
+    <ul>
+        <div class="title is-4"> Completed...</div>
+        {% for todo in todos %}
+        <li class="is-top">
+            {% if todo.important %}
+            <span style="color:red">(重要)</span>
+            {% endif %}
+            <small>{{todo.date_complated}}</small><br>
+            ---><a href="{% url 'viewtodo' todo.id %}">
+                {{todo.title}}
+            </a><br>
+            <div id="image">
+                {% if todo.image %}
+                <img src="{{todo.image.url}}" alt="">
+                {% else %}
+                <img src="{% static 'media/default.bmp' %}" alt="">
+                {% endif %}
+            </div>
+        </li>
+        {% endfor %}
+    </ul>
+</section>
 {% endblock %}

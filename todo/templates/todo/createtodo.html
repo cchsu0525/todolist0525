@@ -5,10 +5,22 @@
 {% endblock %}
 
 {% block content %}
-<h1>CreateTodo</h1>
-<form action="" method="POST">
-    {% csrf_token %}
-    {{form.as_p}}
-    <button type="submit">建立</button>
-</form>
+<br>
+<section class="hero is-warning is-smallheight">
+    <div class="hero-body">
+        <div class="container">
+            <div class="columns is-centered">
+                <div class="column is-6">
+                    <div class="title"> CreateTodo...</div>
+                    <!-- <h1>CreateTodo</h1> -->
+                    <form action="" method="POST" class="box" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        {{form.as_p}}
+                        <button type="submit">建立</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 {% endblock %}

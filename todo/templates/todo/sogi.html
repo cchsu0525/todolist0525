@@ -1,13 +1,39 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block title %}
-<title>手機算命網</title>
+<title>手機占卜網</title>
 {% endblock %}
 
 {% block style %}
-<link rel="stylesheet" href="{% static 'css/style.css' %}">
+<link rel="stylesheet" href="{% static 'css/style2.css' %}">
 {% endblock %}
 
 {% block content %}
-<h1>手機號碼占圤</h1>
+
+<body onload="getTime()">
+    <div id="container">
+        <div class="title">
+            手機號碼吉凶占卜網
+        </div>
+        <div id="time">
+            2022-09-27 22:10:00
+        </div>
+        <p>
+            手機號碼一跟10多年，<span class="text-1">號碼選得好，人生沒煩惱!! </span>
+        </p>
+        <h2>請輸入你的手機號碼</h2>
+        <div id="form">
+            <label for="phone-number">號碼</label>
+            <input type="text" id="phone-number" maxlength="10" placeholder="0988888888">
+
+            <div id="result">
+                測
+            </div>
+            <input type="button" id="analytics" value="測算" onclick="analytics()">
+            <div id="result-text">Lorem ipsum dolor sit!</div>
+        </div>
+        <footer> &copy;Created by AndyHsu v0.1</footer>
+    </div>
+    <script src="{% static 'js/sogi.js' %}"></script>
+</body>
 {% endblock %}

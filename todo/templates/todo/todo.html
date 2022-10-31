@@ -8,50 +8,61 @@
 <link rel="stylesheet" href="{% static 'css/todo.css' %}">
 {% endblock %}
 
+{% block header %}
+<div class="tags is-right">
+    <a href="{% url 'fitness' %}" class="tag is-info is-medium ">健 身 網 站</a> &emsp;
+    <a href="{% url 'sogi' %}" class="tag is-primary is-medium ">手機號碼占圤</a> &emsp;
+</div>
+{% endblock %}
+
 {% block content %}
-<h1>TodoList</h1>
+<!-- <h1>TodoList</h1> -->
+
 {% if not request.user.is_authenticated %}
 <h3>請先註冊或登入</h3>
 {% else %}
-<div class="columns">
-    <div class="column is-1 is-text-2 has-text-centered">
-        <a href="{% url 'fitness' %}" class="tag is-info is-large article-tag">健身網站</a>
-    </div>
-    <div class="column is-1 has-text-centered">
-        <a href="" class="nav-item">B</a>
-    </div>
-    <div class="column is-1 has-text-centered">
-        <a href="" class="nav-item">C</a>
-    </div>
-</div>
-
-<ul>
-    <!-- todo=>None -->
-    {% if not todos %}
-    <h3>目前無代辦事項，請先新增...</h3>
-    {% else %}
-    {% for todo in todos %}
-    <li>
-        {% if todo.important %}
-        <span style="color:red">(重要)</span>
-        {% endif %}
-        <small>{{todo.created}}</small>
-        ---><a href="{% url 'viewtodo' todo.id %}">
-            {% if todo.completed %}
-            <s>{{todo.title}}</s>
-            {% else %}
-            {{todo.title}}
+<section class="hero is-warning is-fullheight">
+    <ul>
+        <!-- todo=>None -->
+        {% if not todos %}
+        <div class="title is-4">...目前無代辦事項，請先新增...</div>
+        <!-- <h3>目前無代辦事項，請先新增...</h3> -->
+        {% else %}
+        <div class="title is-4">...未完成代辦事項... &emsp;
+            <a href="{% url 'sort' %}" class="tag is-primary is-medium">排序</a>
+        </div>
+        {% for todo in todos %}
+        <li>
+            {% if todo.important %}
+            <span style="color:red">(重要)</span>
             {% endif %}
-        </a><br>
-        <form action="{% url 'delete' todo.id %}">
-            <button type="submit">刪除</button>
-        </form>
-        <form action="{% url 'completed_by_id' todo.id %}">
-            <button type="submit">完成</button>
-        </form>
-    </li><br>
-    {% endfor %}
-    {% endif %}
-</ul>
+            <small>{{todo.created}}</small><br>
+            ---><a href="{% url 'viewtodo' todo.id %}">
+                {% if todo.completed %}
+                <s>{{todo.title}}</s>
+                {% else %}
+                {{todo.title}}
+                {% endif %}
+            </a><br>
+            <div id="image">
+                {% if todo.image %}
+                <img src="{{todo.image.url}}" alt="">
+                <!-- <p>width="300px" height="200px"</p> -->
+                {% else %}
+                <img src="{% static 'media/default.bmp' %}" alt="">
+                {% endif %}
+            </div>
+            <form action="{% url 'delete' todo.id %}">
+                <button type="submit">刪除</button>
+            </form>
+            <form action="{% url 'completed_by_id' todo.id %}">
+                <button type="submit">完成</button>
+            </form>
+        </li>
+        {% endfor %}
+        {% endif %}
+    </ul>
+</section>
 {% endif %}
+
 {% endblock %}

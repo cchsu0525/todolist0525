@@ -15,6 +15,14 @@ def user_logout(request):
 
 @login_required
 def profile(request):
+    if request.method == 'POST':
+        username = request.user
+        email = request.POST.get('email')
+        # print(username,email)
+        if User.objects.filter(username=username).exists():
+            User.objects.filter(username=username).update(email=email)
+            return redirect('profile')
+
     return render(request, './user/profile.html')
 
 

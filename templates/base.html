@@ -29,6 +29,10 @@
         <a href="{% url 'createtodo' %}">建立Todo</a>
         <a href="{% url 'completed' %}">已完成Todo</a>
         <a href="{% url 'logout' %}">登出</a>
+        {% block header %}
+
+        {% endblock %}
+
         {% else %}
         <!-- <a href="{% url 'login' %}">登入</a>
         <a href="{% url 'register' %}">註冊</a> -->

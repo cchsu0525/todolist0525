@@ -1,0 +1,83 @@
+body {
+    background-color: azure;
+}
+
+#container {
+    width: 80%;
+    margin: 24px auto;
+    text-align: center;
+}
+
+.title {
+    width: 70%;
+    background-color: cadetblue;
+    color: white;
+    padding: 20px;
+    font-size: 32px;
+    display: inline-block;
+}
+
+#time {
+    margin-top: 16px;
+}
+
+.text-1 {
+    font-size: 24px;
+    font-weight: bold;
+    color: red;
+    font-style: italic;
+}
+
+#form {
+    background-color: red;
+    width: 80%;
+    margin: 24px auto;
+    text-align: center;
+    color: white;
+    padding: 24px 0;
+    border-radius: 12px;
+}
+
+label,
+input {
+    display: block;
+    text-align: center;
+    margin: 12px auto;
+    font-size: 20px;
+}
+
+input[type="text"] {
+    font-size: 24px;
+}
+
+input[type="botton"] {
+    margin-top: 48px;
+    background-color: aquamarine;
+    width: 100px;
+    height: 40px;
+    border-radius: 6px;
+    border: none;
+}
+
+#result {
+    font-size: 88px;
+    font-family: 標楷體;
+    color: yellow;
+}
+
+#result-text {
+    margin-top: 24px;
+    background-color: black;
+    display: inline-block;
+    font-size: 24px;
+    font-family: 新細明體;
+    color: rgb(255, 255, 238);
+    padding: 6px 24px;
+    border-radius: 8px;
+}
+
+@media screen and (max-width: 768px) {
+    #container {
+        width: 100%;
+    }
+}

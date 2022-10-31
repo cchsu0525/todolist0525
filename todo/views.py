@@ -53,9 +53,9 @@ def createtodo(request):
     message = ''
     try:
         if request.method == 'POST':
-            print(request.POST)
+            print(request.POST, request.FILES)
             if request.user.is_authenticated:
-                form = TodoForm(request.POST)
+                form = TodoForm(request.POST, request.FILES)
                 todo = form.save(commit=False)
                 todo.user = request.user
                 todo.date_complated = datetime.now() if todo.completed else None
@@ -69,11 +69,33 @@ def createtodo(request):
     return render(request, './todo/createtodo.html', {'form': form, 'message': message})
 
 
+@login_required
+def sorttodo(request):
+    try:
+        todos = Todo.objects.filter(user=request.user, completed=False)
+        sort = request.COOKIES.get('sort')
+        print(sort)
+        sort = '1' if not sort or sort == '0' else '0'
+
+        if sort == '1':
+            todos = todos.order_by('-created')
+
+    except Exception as e:
+        print(e)
+
+    response = render(request, './todo/todo.html', {'todos': todos})
+    response.set_cookie('sort', sort)
+
+    return response
+
 # Create your views here.
+
+
 def todo(request):
     todos = None
     if request.user.is_authenticated:
-        todos = Todo.objects.filter(user=request.user)
+        # todos = Todo.objects.filter(user=request.user)
+        todos = Todo.objects.filter(user=request.user, completed=False)
     print(todos)
     return render(request, './todo/todo.html', {'todos': todos})
 
@@ -86,9 +108,9 @@ def viewtodo(request, id):
             form = TodoForm(instance=todo)
 
         elif request.method == 'POST':
-            print(request.POST)
+            print(request.POST, request.FILES)
             if request.POST.get('update'):
-                form = TodoForm(request.POST, instance=todo)
+                form = TodoForm(request.POST, request.FILES, instance=todo)
                 if form.is_valid():
                     todo = form.save(commit=False)
                     todo.date_complated = datetime.now() if todo.completed else None

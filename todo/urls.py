@@ -10,6 +10,7 @@ urlpatterns = [
     path('completed/', views.completed, name='completed'),
     path('delete/<int:id>', views.delete, name='delete'),
     path('completed/<int:id>', views.completed_by_id, name='completed_by_id'),
+    path('sort/', views.sorttodo, name='sort'),
     path('fitness/', views.fitness, name='fitness'),
     path('bmi/', views.bmi, name='bmi'),
     path('sogi/', views.sogi, name='sogi'),
