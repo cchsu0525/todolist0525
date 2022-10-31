@@ -12,4 +12,5 @@ urlpatterns = [
     path('completed/<int:id>', views.completed_by_id, name='completed_by_id'),
     path('fitness/', views.fitness, name='fitness'),
     path('bmi/', views.bmi, name='bmi'),
+    path('sogi/', views.sogi, name='sogi'),
 ]
