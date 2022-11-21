@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+
+{% block title %}
+<title>密碼產生器</title>
+{% endblock %}
+
+{% block content %}
+<br>
+<section class="hero is-warning is-smallheight">
+    <div class="hero-body">
+        <div class="container">
+            <div class="columns is-centered">
+                <div class="column is-4 has-text-centered ">
+                    <p class="title has-text-danger">密碼產生器</h1>
+                </div>
+            </div>
+
+            <div class="columns is-centered">
+                <div class="column is-6">
+                    <!-- {% url 'genpassword' %} , 如果method="POST",在views.py內genpassword() 要使用request.POST.get,否則要使用request.GET.get -->
+                    <!-- method="" 空白,預設是 GET -->
+                    <form action="{% url 'genpassword' %}" method="POST" class="box">
+                        {% csrf_token %}
+                        <div class="field">
+                            <label for="length">密碼長度</label>
+                            <select name="length" id="length">
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8" selected>8</option>
+                                <option value="9">9</option>
+                                <option value="10">10</option>
+                            </select>
+                        </div>
+                        <div class="field">
+                            <label for="input-length" class="label">自定義長度
+                                <input type="number" name="input-length" class="input" id="input-length">
+                            </label>
+                        </div>
+                        <div class="field is-horizontal">
+                            <label for="" class="label">
+                                <input type="checkbox" name="uppercase" id="uppercase">
+                                大寫</label>
+                            <label for="" class="label">
+                                <input type="checkbox" name="numbers" id="numbers">
+                                數字</label>
+                            <label for="" class="label">
+                                <input type="checkbox" name="special" id="special">
+                                特殊
+                            </label>
+                        </div>
+                        <input type="submit" class="button is-warning has-text-danger" value="產生">
+                        <hr>
+                        <div class="box is-4">{{password}}</div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

@@ -1,6 +1,25 @@
+body {
+    background-color: white;
+    font-family: 標楷體, 新細明體, 微軟正黑體, sans-serif;
+}
+
+.title {
+    color: #5f57cc;
+    background-color: aqua;
+    font-family: 標楷體;
+    font-size: 3rem;
+    height: 4rem;
+    border-radius: 0.8rem;
+    /*垂直置中*/
+    line-height: 64px;
+    /*水平置中*/
+    text-align: center;
+}
+
 form {
     display: inline-block;
     margin: 6px 0px;
+
 }
 
 li {
@@ -12,6 +31,7 @@ li {
     border: 2px solid darkblue;
     padding: 6px;
     border-radius: 6px;
+
 }
 
 button {

@@ -5,39 +5,47 @@
 {% endblock %}
 {% block style %}
 <style>
-    .title {
-        background-color: darkblue;
+    .title2 {
+        background-color: rgb(57, 192, 124);
         padding: 12px;
         border-radius: 6px;
         display: inline-block;
         color: white;
-        width: 400px;
+        width: auto;
     }
 </style>
 {% endblock %}
 
 {% block content %}
-<h1>ViewTodo</h1>
-<small>建立日期:{{todo.created}}</small><br>
-<h2 class="title">標題:{{todo.title}}</h2>
-<ul>
-    <li>重要:{% if todo.important %}
-        是{% else %}否{% endif %}
-    </li>
-    <li>項目:{{todo.text}}</li>
-    <li>完成時間:
-        {% if todo.date_completed %}
-        {{todo.date_completed}}
-        {% endif %}
-    </li>
-</ul>
-<form action="" method="POST" enctype="multipart/form-data">
-    {% csrf_token %}
-    {{form.as_p}}
-    <input type="submit" name="update" value="更新">
-    <input type="submit" name="delete" value="刪除">
-    <!-- <button type="submit">更新</button>
-    <button type="submit">刪除</button> -->
-</form>
-
+<br>
+<section class="hero is-warning is-fullheight">
+    <div class="hero-body">
+        <div class="container">
+            <!-- <div class="columns is-centered">
+                <div class="column is-6"> -->
+            <div class="title is-4"> ViewTodo...</div>
+            <large>建立日期 : {{todo.created}}</large><br>
+            <h2 class="title2">標題 : {{todo.title}}</h2>
+            <ul>
+                <li>重要 : {% if todo.important %}
+                    是{% else %}否{% endif %}
+                </li>
+                <li>項目 : {{todo.text}}</li>
+                <li>完成時間:
+                    {% if todo.date_complated %}
+                    {{todo.date_complated}}
+                    {% endif %}
+                </li>
+            </ul>
+            <form action="" method="POST" class="box" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{form.as_p}}
+                <input type="submit" name="update" value="更新">
+                <input type="submit" name="delete" value="刪除">
+            </form>
+            <!-- </div>
+            </div> -->
+        </div>
+    </div>
+</section>
 {% endblock %}

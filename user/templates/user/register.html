@@ -4,11 +4,15 @@
 {% endblock %}
 
 {% block content %}
-<h1>Register</h1>
-<form action="" method="POST">
-    {% csrf_token %}
-    {{form.as_p}}
-    <button type="submit">註冊</button>
-    {{message}}
-</form>
+<section class="hero is-warning is-smallheight">
+    <div class="hero-body">
+        <div class="title is-4"> Register...</div>
+        <form action="" method="POST" class="box">
+            {% csrf_token %}
+            {{form.as_p}}
+            <button type="submit">註冊</button>
+            {{message}}
+        </form>
+    </div>
+</section>
 {% endblock %}

@@ -5,6 +5,48 @@ from .models import Todo
 from .forms import TodoForm
 from datetime import datetime
 from django.contrib.auth.decorators import login_required
+import random
+
+
+@login_required
+def genpassword(request):
+    print(request.method)
+    if request.method == 'POST':
+        # a~z
+        chars = [chr(c) for c in range(97, 123)]
+        # None ==>False
+        if request.POST.get('uppercase'):
+            chars += [chr(c).upper() for c in range(97, 123)]
+
+        if request.POST.get('numbers'):
+            chars += list('0123456789')
+
+        if request.POST.get('special'):
+            chars += list('@#$%^&*')
+
+        print(chars)
+        # 取得輸入的長度
+        length = eval(request.POST.get('length')) if request.POST.get('input-length') == '' \
+            else eval(request.POST.get('input-length'))
+
+        # 樣本數(不會重複，但不能取樣超過容器大小)
+        # print(random.sample(chars,length))
+        password = ''.join([random.choice(chars) for i in range(length)])
+
+        # 變成字串?
+        print(password)
+        print(length)
+
+        # return render(request, './todo/genpassword.html', {'password': password})
+        return render(request, './todo/pwindex.html', {'password': '您的密碼為 : '+password})
+    else:
+        return redirect('pwindex')
+
+
+@login_required
+def pwindex(request):
+    password = ''
+    return render(request, './todo/pwindex.html', {'password': password})
 
 
 @login_required

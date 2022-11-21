@@ -1,19 +1,21 @@
+body {
+    background-color: white;
+    font-family: 標楷體, 新細明體, 微軟正黑體, sans-serif;
+}
+
 header {
-    background-color: rgb(67, 0, 148);
-    color: white;
+    /* background-color: rgb(67, 0, 148); */
+    color: rgb(64, 54, 199);
     padding: 12px;
-    width: 500px;
+    /* width: 500px; */
 }
 
 header>a {
     margin-left: 6px;
     text-decoration: none;
+    font-size: 20px;
 }
 
 header>a:visited {
-    color: white;
-}
-
-body {
-    background-color: antiquewhite;
+    color: rgb(64, 54, 199);
 }

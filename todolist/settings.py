@@ -90,28 +90,28 @@ WSGI_APPLICATION = "todolist.wsgi.application"
 # }
 
 # local mysql
-DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.mysql",
-        "NAME": "todolist",
-        'USER': 'root',
-        'PASSWORD': '1234',
-        'HOST': '127.0.0.1',
-        'PORT': '3306'
-    }
-}
-
-# AWS mysql
 # DATABASES = {
 #     "default": {
 #         "ENGINE": "django.db.backends.mysql",
 #         "NAME": "todolist",
-#         'USER': 'admin',
-#         'PASSWORD': '12345678',
-#         'HOST': 'database-2.cwaiyumrl1ge.us-east-1.rds.amazonaws.com',
+#         'USER': 'root',
+#         'PASSWORD': '1234',
+#         'HOST': '127.0.0.1',
 #         'PORT': '3306'
 #     }
 # }
+
+# AWS mysql
+DATABASES = {
+    "default": {
+        "ENGINE": "django.db.backends.mysql",
+        "NAME": "todolist",
+        'USER': 'admin',
+        'PASSWORD': '12345678',
+        'HOST': 'database-2.cwaiyumrl1ge.us-east-1.rds.amazonaws.com',
+        'PORT': '3306'
+    }
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators

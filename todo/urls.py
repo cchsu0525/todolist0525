@@ -14,4 +14,6 @@ urlpatterns = [
     path('fitness/', views.fitness, name='fitness'),
     path('bmi/', views.bmi, name='bmi'),
     path('sogi/', views.sogi, name='sogi'),
+    path('pwindex/', views.pwindex, name='pwindex'),
+    path('genpassword/', views.genpassword, name='genpassword'),
 ]
